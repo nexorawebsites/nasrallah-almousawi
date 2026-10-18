@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الأدب في العصر الجاهلي — رحلة في تراث العرب | إعداد: نصرلله الموسوي</title>
+<meta name="description" content="عرض تفاعلي سينمائي عن الأدب في العصر الجاهلي: البيئة، المكانة، أغراض الشعر، الخصائص والشعراء، النثر والإرث.">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Cairo:wght@400;600;700&family=Reem+Kufi:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   الأدب في العصر الجاهلي — هوية «الديوان المفتوح»
+   تصميم بديل: إطار مخطوطة، حروف مائية، ألسنة كتاب، أقواس
+   ============================================================ */
+:root{
+  --ivory:#F8F0DF; --papyrus:#E8D6B5; --sand:#D7BE91; --ink:#493326;
+  --ink-2:#2f2015; --gold:#B69A64; --gold-d:#8f7443; --olive:#777B56; --warm:#FFFDF7;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --f-display:'Aref Ruqaa','Amiri',serif;
+  --f-head:'Amiri','Noto Naskh Arabic',serif;
+  --f-body:'Noto Naskh Arabic','Amiri',Tahoma,serif;
+  --f-ui:'Cairo','Noto Naskh Arabic',sans-serif;
+  --f-kufi:'Reem Kufi','Cairo',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{height:100%}
+body{
+  font-family:var(--f-body); color:var(--ink); background:var(--ivory);
+  overflow:hidden; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+body.site{overflow-y:auto; overflow-x:hidden}
+::selection{background:rgba(119,123,86,.3)}
+:focus-visible{outline:2px dashed var(--gold-d); outline-offset:3px; border-radius:2px}
+
+/* ---- خلفية: بساط أقواس هندسي + نسيج ورق ---- */
+#paperBack{position:fixed; inset:0; z-index:-3; pointer-events:none;
+  background:
+    radial-gradient(1000px 600px at 85% -5%, rgba(255,253,247,.95), transparent 55%),
+    radial-gradient(800px 700px at 5% 105%, rgba(215,190,145,.3), transparent 55%),
+    linear-gradient(180deg,#f6edd8, var(--ivory) 30%, #f2e6cb);
+}
+#paperBack::after{content:""; position:absolute; inset:0; opacity:.055;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%238f7443' stroke-width='1'%3E%3Cpath d='M8 64V34a24 24 0 0 1 48 0v30'/%3E%3Cpath d='M20 64V40a12 12 0 0 1 24 0v24'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:64px 64px;
+}
+#grain{position:fixed; inset:0; z-index:60; pointer-events:none; opacity:.45; mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+#dust{position:fixed; inset:0; z-index:-1; pointer-events:none}
+
+/* ---- إطار المخطوطة حول الشاشة ---- */
+#frame{position:fixed; inset:12px; z-index:85; pointer-events:none;
+  border:1.5px solid rgba(143,116,67,.75)}
+#frame::before{content:""; position:absolute; inset:5px; border:1px solid rgba(182,154,100,.5)}
+#frame .fcorner{position:absolute; width:30px; height:30px; color:var(--gold-d); background:var(--ivory); padding:3px}
+#frame .fcorner.c1{top:-9px; right:-9px}
+#frame .fcorner.c2{top:-9px; left:-9px}
+#frame .fcorner.c3{bottom:-9px; right:-9px}
+#frame .fcorner.c4{bottom:-9px; left:-9px}
+@media (max-width:640px){#frame{inset:7px}}
+
+/* ---- علامة التقدّم (خيط ذهبي يمين الشاشة) ---- */
+#ribbon{position:fixed; top:64px; bottom:64px; right:24px; width:2px; z-index:68;
+  background:linear-gradient(180deg,transparent,rgba(182,154,100,.5) 12%,rgba(182,154,100,.5) 88%,transparent)}
+#ribbonDot{position:absolute; top:0; right:50%; transform:translate(50%,-50%); width:15px; height:15px; border-radius:50%;
+  background:radial-gradient(circle at 34% 30%, #e9d7ae, var(--gold-d));
+  border:1.5px solid var(--gold-d); box-shadow:0 3px 9px rgba(73,51,38,.4); transition:top .6s var(--ease)}
+#ribbonDot::after{content:""; position:absolute; inset:4px; border-radius:50%; background:var(--warm)}
+@media (max-width:900px){#ribbon{display:none}}
+
+/* ---- ألسنة الكتاب (يسار الشاشة) ---- */
+#tabs{position:fixed; left:0; top:50%; transform:translateY(-50%); z-index:67;
+  display:flex; flex-direction:column; gap:5px}
+body.site #tabs{display:none}
+.tab{position:relative; width:38px; height:25px; cursor:pointer; border:none;
+  font-family:var(--f-kufi); font-size:.68rem; color:var(--gold-d);
+  background:linear-gradient(180deg,#f7efdb,#ecdcb7); border:1px solid rgba(143,116,67,.55); border-left:none;
+  border-radius:0 7px 7px 0; transition:width .35s var(--ease), background .3s, color .3s;
+  display:flex; align-items:center; justify-content:flex-start; padding-inline-start:9px}
+.tab:hover{width:58px}
+.tab.on{width:58px; background:linear-gradient(180deg,#bfa063,#8f7443); color:var(--warm)}
+.tab::after{content:attr(data-tip); position:absolute; left:calc(100% + 10px); top:50%; transform:translateY(-50%) translateX(-6px);
+  font-family:var(--f-ui); font-size:.68rem; font-weight:600; white-space:nowrap; color:var(--warm);
+  background:rgba(47,32,21,.92); padding:5px 11px; border-radius:4px; opacity:0; pointer-events:none; transition:opacity .25s, transform .25s}
+.tab:hover::after{opacity:1; transform:translateY(-50%) translateX(0)}
+@media (max-width:900px), (max-height:560px){#tabs{display:none}}
+
+/* ---- لوحة علوية صغيرة ---- */
+#brand{position:fixed; top:22px; right:50%; transform:translateX(50%); z-index:65;
+  display:flex; align-items:center; gap:8px; font-family:var(--f-kufi); font-size:.78rem; color:var(--gold-d);
+  background:rgba(253,247,233,.8); backdrop-filter:blur(6px); padding:5px 16px;
+  border:1px solid rgba(182,154,100,.45); transition:opacity .4s}
+#brand svg{width:15px; height:15px}
+body.site #brand{opacity:0; pointer-events:none}
+@media (max-width:640px){#brand{display:none}}
+
+/* ---- تنقل وضع الموقع ---- */
+#siteNav{position:fixed; top:0; right:0; left:0; z-index:66; display:none;
+  background:rgba(248,240,223,.92); backdrop-filter:blur(10px);
+  border-bottom:1.5px solid rgba(143,116,67,.4); padding:34px 24px 12px}
+body.site #siteNav{display:block}
+#siteNav .nav-row{display:flex; align-items:center; gap:4px; max-width:1160px; margin-inline:auto; flex-wrap:wrap}
+#siteNav .nav-title{font-family:var(--f-display); font-size:1.1rem; color:var(--gold-d); margin-inline-end:12px}
+#siteNav a{position:relative; font-family:var(--f-ui); font-size:.8rem; font-weight:600; color:var(--ink); text-decoration:none; padding:7px 11px}
+#siteNav a:hover{color:var(--gold-d)}
+#siteNav a.on{color:var(--gold-d)}
+#siteNav a.on::after{content:""; position:absolute; right:8px; left:8px; bottom:2px; height:4px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='6' viewBox='0 0 60 6'%3E%3Cpath d='M1 4 Q 10 1 20 3.5 T 40 3.5 T 59 3' fill='none' stroke='%23B69A64' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+
+/* ============================================================
+   المشاهد
+   ============================================================ */
+#stage{position:fixed; inset:0; z-index:1; perspective:1400px}
+body.site #stage{position:static; perspective:none}
+#scenes{position:absolute; inset:0}
+body.site #scenes{position:static; inset:auto; height:auto}
+body.tzoom #scenes{transform:scale(var(--z,1)); transform-origin:center center; width:calc(100% / var(--z,1)); height:calc(100% / var(--z,1))}
+body.site.tzoom #scenes{transform-origin:top center; width:calc(100% / var(--z,1)); height:auto}
+
+.scene{position:absolute; inset:0; display:flex; flex-direction:column; overflow:hidden;
+  opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .5s var(--ease), visibility 0s linear .55s}
+.scene.active{opacity:1; visibility:visible; pointer-events:auto; transition-delay:0s}
+.scene.fadeout{opacity:0; transition:opacity .24s ease}
+.scene.fx-up{animation:pgUp .9s var(--ease)}
+.scene.fx-spread{animation:pgSpread 1s var(--ease)}
+@keyframes pgUp{
+  0%{opacity:0; transform:translateY(56px) scale(.985); clip-path:inset(9% 3% 0 3% round 14px)}
+  60%{opacity:1}
+  100%{opacity:1; transform:none; clip-path:inset(0 0 0 0 round 0)}
+}
+@keyframes pgSpread{
+  0%{opacity:0; clip-path:inset(0 47% 0 47%)}
+  55%{opacity:1}
+  100%{opacity:1; clip-path:inset(0 0 0 0)}
+}
+body.site .scene{position:relative; overflow:visible; opacity:1; visibility:visible; pointer-events:auto;
+  animation:none; min-height:90vh; padding:110px 0 80px; border-bottom:1px solid rgba(182,154,100,.3)}
+body.site .scene.scene-cover{min-height:100vh; padding:110px 0 40px}
+
+.scene-inner{width:min(1150px,93vw); margin:auto; max-height:100%; overflow-y:auto; overscroll-behavior:contain;
+  padding:clamp(16px,4vh,48px) clamp(8px,2.4vw,34px); scrollbar-width:thin; scrollbar-color:var(--sand) transparent}
+body.site .scene-inner{overflow:visible; max-height:none}
+.scene-inner::-webkit-scrollbar{width:6px}
+.scene-inner::-webkit-scrollbar-thumb{background:var(--sand); border-radius:99px}
+
+/* ---- الحرف المائي العملاق ---- */
+.wm{position:absolute; z-index:0; font-family:var(--f-head); font-weight:700; line-height:1;
+  font-size:clamp(9rem,24vw,22rem); color:rgba(73,51,38,.05); pointer-events:none; user-select:none;
+  top:50%; transform:translateY(-52%); white-space:nowrap}
+.wm-r{right:-1.5%; text-align:right}
+.wm-l{left:-1.5%; text-align:left}
+
+/* ---- محرك الظهور ---- */
+[data-anim]{opacity:0; transform:var(--t0,none); transform-origin:center;
+  transition:opacity .85s var(--ease) var(--d,0s), transform .95s var(--ease) var(--d,0s), clip-path 1s var(--ease) var(--d,0s)}
+[data-anim="up"]{--t0:translateY(32px)}
+[data-anim="down"]{--t0:translateY(-24px)}
+[data-anim="fade"]{--t0:none}
+[data-anim="zoom"]{--t0:scale(.9)}
+[data-anim="right"]{--t0:translateX(44px)}
+[data-anim="left"]{--t0:translateX(-44px)}
+[data-anim="line"]{--t0:scaleX(0)}
+[data-anim="clip"]{--t0:translateY(18px); clip-path:inset(0 0 100% 0)}
+[data-anim].in{opacity:1; transform:none}
+[data-anim="clip"].in{clip-path:inset(0 0 0 0)}
+.gold-rule{height:2px; width:120px; background:linear-gradient(90deg,var(--gold-d),rgba(182,154,100,.1)); position:relative; transform-origin:right center}
+.gold-rule::before{content:""; position:absolute; right:-4px; top:-4px; width:9px; height:9px; transform:rotate(45deg);
+  background:var(--gold); border:1px solid var(--gold-d)}
+
+/* ---- عناصر لغوية ---- */
+.chip{display:inline-flex; align-items:center; gap:8px; font-family:var(--f-kufi); font-size:.78rem; color:var(--warm);
+  background:var(--olive); padding:5px 15px; border-radius:2px; letter-spacing:.5px;
+  box-shadow:3px 3px 0 rgba(119,123,86,.25)}
+h1,h2{font-family:var(--f-display); font-weight:700; color:var(--ink-2); line-height:1.4}
+.h-scene{font-size:clamp(1.9rem,3.6vw,3.2rem); margin-top:14px}
+.brush{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='14' viewBox='0 0 200 14'%3E%3Cpath d='M3 10 Q 35 3 70 8 T 130 8 T 197 8' fill='none' stroke='%23B69A64' stroke-width='4.5' stroke-linecap='round' opacity='.65'/%3E%3C/svg%3E") bottom/100% .4em no-repeat; padding-bottom:.22em}
+.lead{font-size:clamp(1.05rem,1.6vw,1.38rem); line-height:2.15; color:#5b4232; max-width:58ch}
+.quote-mark{font-family:var(--f-head); font-style:italic; color:var(--gold-d);
+  font-size:clamp(1.15rem,2vw,1.65rem); line-height:2.05}
+.quote-mark::before{content:"«"; color:var(--gold); margin-inline-end:6px}
+.quote-mark::after{content:"»"; color:var(--gold); margin-inline-start:6px}
+.note{font-size:.92rem; color:#7a6552; line-height:1.95}
+.center{text-align:center}
+.center .lead{margin-inline:auto}
+
+/* ---- فاصل هلالي ---- */
+.orn-div{display:flex; align-items:center; gap:10px; justify-content:center; margin:16px auto}
+.orn-div i{height:1px; width:min(90px,22vw); background:linear-gradient(90deg,transparent,var(--gold))}
+.orn-div i:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
+.orn-div svg{width:18px; height:18px; color:var(--gold)}
+
+/* ---- الصور: إطار لوحة ببطانة، ونسخة مقوّسة ---- */
+.mat{position:relative; background:var(--warm); padding:10px;
+  border:1px solid rgba(143,116,67,.5);
+  box-shadow:0 24px 50px -22px rgba(73,51,38,.55), 8px 8px 0 -2px rgba(215,190,145,.45)}
+.mat .mat-in{position:relative; overflow:hidden; background:linear-gradient(140deg,#e6d3ac,#c4a76f)}
+.mat img{width:100%; height:100%; object-fit:cover; display:block; filter:sepia(.15) saturate(.95); transition:transform 1.3s var(--ease)}
+.mat:hover img{transform:scale(1.05)}
+.mat figcaption{padding:9px 4px 1px; font-family:var(--f-ui); font-size:.72rem; color:#8a715a; text-align:center}
+.mat.arch .mat-in{border-radius:170px 170px 8px 8px}
+.mat.arch{border-radius:180px 180px 10px 10px}
+.mat.failed img{display:none}
+.mat.failed .mat-in::before{content:""; position:absolute; inset:0;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cg fill='none' stroke='%23FFFDF7' stroke-opacity='.55' stroke-width='1.4'%3E%3Cpath d='M16 72V40a28 28 0 0 1 56 0v32'/%3E%3Cpath d='M28 72V46a16 16 0 0 1 32 0v26'/%3E%3C/g%3E%3C/svg%3E") center/88px no-repeat}
+.mat.failed figcaption::after{content:" — تعذّر تحميل الصورة، المشهد الرمزي بديلٌ عنها"; color:var(--gold-d)}
+
+/* ---- تخطيط المشاهد ---- */
+.spread{display:grid; grid-template-columns:1fr 1fr; gap:clamp(20px,3.2vw,48px); align-items:center; position:relative; z-index:1}
+@media (max-width:880px){.spread{grid-template-columns:1fr}}
+.stack{display:grid; gap:11px}
+.mrow{display:flex; gap:13px; align-items:flex-start; padding:10px 4px; border-bottom:1px dashed rgba(182,154,100,.45);
+  transition:transform .3s var(--ease), background .3s}
+.mrow:hover{transform:translateX(-5px); background:rgba(255,253,247,.5)}
+.mrow:last-child{border-bottom:none}
+.mrow .mk{flex:none; width:38px; height:38px; display:grid; place-items:center; color:var(--gold-d);
+  background:var(--warm); border:1px solid rgba(143,116,67,.45);
+  clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.mrow .mk svg{width:18px; height:18px}
+.mrow h3{font-family:var(--f-head); font-size:1.12rem; font-weight:700; margin-bottom:2px}
+.mrow p{font-size:.93rem; line-height:1.85; color:#6b5340}
+
+/* ---- الغلاف: نصف لوحة / نصف نص ---- */
+.scene-cover{padding:0}
+.cover-split{position:relative; z-index:1; display:grid; grid-template-columns:1fr 1.05fr; height:100%; min-height:100%}
+@media (max-width:880px){.cover-split{grid-template-columns:1fr; grid-template-rows:44% 1fr}}
+.cover-text{display:flex; flex-direction:column; justify-content:center; padding:clamp(40px,7vh,80px) clamp(26px,4.5vw,64px); position:relative}
+.cover-text::before{content:""; position:absolute; top:0; bottom:0; left:0; width:1.5px;
+  background:linear-gradient(180deg,transparent,var(--gold) 20%,var(--gold) 80%,transparent)}
+.title-cover{font-size:clamp(2.6rem,6.6vw,5.2rem); margin:16px 0 6px}
+.plate{align-self:flex-start; margin-top:22px; font-family:var(--f-head); font-size:clamp(1rem,1.5vw,1.25rem);
+  padding:10px 22px; border:1.5px solid var(--gold-d); position:relative; background:rgba(255,253,247,.6)}
+.plate::before{content:""; position:absolute; inset:3px; border:1px solid rgba(182,154,100,.55); pointer-events:none}
+.plate strong{color:var(--gold-d)}
+.cover-media{position:relative; overflow:hidden}
+.cover-media .mat{position:absolute; inset:clamp(30px,5vh,60px) clamp(22px,3vw,44px); display:flex; flex-direction:column}
+.cover-media .mat-in{flex:1}
+.cover-media img{animation:ken 28s ease-in-out infinite alternate}
+@keyframes ken{from{transform:scale(1.03)} to{transform:scale(1.13) translateY(-10px)}}
+.btn-hero{margin-top:28px; align-self:flex-start; font-family:var(--f-ui); font-weight:700; font-size:1.02rem; cursor:pointer;
+  color:var(--warm); background:linear-gradient(160deg,#3a291c,var(--ink));
+  border:none; padding:15px 32px; display:inline-flex; align-items:center; gap:11px;
+  clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);
+  box-shadow:0 14px 28px -10px rgba(47,32,21,.55); transition:transform .3s var(--ease), box-shadow .3s, background .3s}
+.btn-hero:hover{transform:translateY(-3px); background:linear-gradient(160deg,#8f7443,#6d5835)}
+.btn-hero:active{transform:translateY(-1px) scale(.98)}
+.btn-hero svg{width:20px; height:20px}
+.hint{margin-top:22px; font-family:var(--f-ui); font-size:.76rem; color:#8a715a}
+.seal-spin{position:absolute; bottom:clamp(28px,5vh,54px); left:clamp(22px,3vw,44px); width:86px; height:86px; color:var(--gold);
+  opacity:.5; animation:spin 26s linear infinite; z-index:3}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:880px){.seal-spin{display:none}}
+
+/* ---- المقدمة: مسار متعرّج + بطاقة أرشيف ---- */
+.tl-wrap{position:relative; margin-top:26px; z-index:1}
+.tl-path{position:absolute; inset-inline:4%; top:8px; height:56px; width:92%; pointer-events:none}
+.tl-path path{stroke:var(--gold); stroke-width:2; stroke-dasharray:6 7; fill:none; opacity:.75}
+.tl-nodes{position:relative; display:flex; justify-content:space-between}
+.era{background:none; border:none; cursor:pointer; width:24%; display:flex; flex-direction:column; align-items:center; gap:9px; font-family:var(--f-ui); color:var(--ink); padding-top:0}
+.era:nth-child(odd){padding-top:26px}
+.era .dot{width:44px; height:44px; border-radius:50%; display:grid; place-items:center; font-family:var(--f-kufi);
+  font-size:.95rem; color:var(--gold-d); background:linear-gradient(150deg,#fdf6e4,#ecd9b2);
+  border:1.5px solid var(--gold-d); box-shadow:0 7px 15px -7px rgba(73,51,38,.5); transition:transform .35s var(--ease), background .3s, color .3s}
+.era:hover .dot{transform:translateY(-4px) scale(1.06)}
+.era.on .dot{background:linear-gradient(150deg,#bfa063,#8f7443); color:var(--warm); transform:translateY(-4px)}
+.era .era-name{font-weight:700; font-size:.9rem; line-height:1.4}
+.era.focus .era-name::after{content:"محطّة رحلتنا"; display:block; font-size:.64rem; font-family:var(--f-kufi); color:var(--warm);
+  background:var(--olive); padding:1px 9px; margin:5px auto 0; width:max-content}
+.archive{margin-top:30px; position:relative; display:grid; grid-template-columns:1fr 240px; gap:22px; align-items:center; text-align:right;
+  background:linear-gradient(180deg,#fdf7e8,#f3e8cd); border:1px solid rgba(143,116,67,.45); padding:22px 26px;
+  box-shadow:0 18px 38px -24px rgba(73,51,38,.55)}
+.archive::before{content:""; position:absolute; top:0; bottom:0; right:10px; width:0;
+  border-right:2px dashed rgba(143,116,67,.4)}
+@media (max-width:760px){.archive{grid-template-columns:1fr}}
+.archive h3{font-family:var(--f-head); font-size:1.3rem; color:var(--gold-d)}
+.archive .era-sub{font-family:var(--f-kufi); font-size:.8rem; color:var(--olive); margin:5px 0 10px}
+.archive p{font-size:.98rem; line-height:1.95; color:#5b4232}
+.archive .mat{padding:7px}
+.archive .mat-in{height:146px}
+.archive.fade{animation:eraIn .55s var(--ease)}
+@keyframes eraIn{from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none}}
+
+/* ---- خارطة الرحلة: سجلّ بدفتر الفهرس ---- */
+.ledger{position:relative; z-index:1; display:grid; gap:6px; margin-top:26px; max-width:760px; margin-inline:auto}
+.lrow{display:flex; align-items:center; gap:16px; cursor:pointer; text-align:right; width:100%;
+  background:none; border:none; border-bottom:1px dashed rgba(143,116,67,.4); padding:13px 8px;
+  font-family:var(--f-body); transition:background .3s, transform .3s var(--ease)}
+.lrow:hover{background:rgba(255,253,247,.65); transform:translateX(-7px)}
+.lrow .lnum{flex:none; font-family:var(--f-display); font-size:1.5rem; color:var(--gold); width:44px; height:44px;
+  display:grid; place-items:center; border:1.5px solid rgba(143,116,67,.55); border-radius:50%; background:var(--warm)}
+.lrow h3{font-family:var(--f-head); font-size:1.12rem; font-weight:700}
+.lrow p{font-family:var(--f-ui); font-size:.74rem; color:#8a715a}
+.lrow .ldr{flex:1; border-bottom:2px dotted rgba(182,154,100,.55); margin-bottom:-8px; margin-inline:6px}
+.lrow .lgo{flex:none; width:30px; height:30px; display:grid; place-items:center; color:var(--gold-d)}
+.lrow .lgo svg{width:17px; height:17px}
+
+/* ---- الركيزة الأولى: لوحة بانورامية + لوح زجاجي ---- */
+.panorama{position:absolute; inset:0; z-index:0}
+.panorama img{width:100%; height:100%; object-fit:cover; filter:sepia(.25) brightness(1.02)}
+.panorama::after{content:""; position:absolute; inset:0;
+  background:linear-gradient(to left, rgba(248,240,223,.94) 30%, rgba(248,240,223,.55) 62%, rgba(248,240,223,.15))}
+.frost{position:relative; background:rgba(255,253,247,.62); backdrop-filter:blur(7px);
+  border:1px solid rgba(255,253,247,.8); border-right:4px solid var(--gold-d); padding:clamp(18px,3vh,30px) clamp(16px,2.4vw,32px);
+  box-shadow:0 26px 55px -30px rgba(73,51,38,.6)}
+.frost .h-scene{margin-top:10px}
+.float-mat{position:absolute; bottom:clamp(24px,5vh,52px); left:clamp(20px,3.4vw,54px); width:clamp(200px,26vw,330px); z-index:2;
+  transform:rotate(-2.5deg)}
+.float-mat .mat-in{height:clamp(120px,22vh,190px)}
+@media (max-width:880px){.float-mat{position:relative; bottom:auto; left:auto; width:100%; transform:none; margin-top:16px}}
+
+/* ---- الركيزة الثانية: كتاب مفتوح ---- */
+.book{position:relative; z-index:1; display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:24px;
+  background:linear-gradient(180deg,#fdf7e8,#f4e9cd); border:1.5px solid rgba(143,116,67,.5); box-shadow:0 30px 60px -30px rgba(73,51,38,.6)}
+.book::before{content:""; position:absolute; top:0; bottom:0; right:50%; width:26px; transform:translateX(50%);
+  background:linear-gradient(90deg,transparent,rgba(73,51,38,.14),transparent); pointer-events:none}
+.book .page{padding:clamp(18px,3vh,30px) clamp(16px,2.6vw,34px); text-align:right}
+.book .page + .page{border-right:1px solid rgba(143,116,67,.3)}
+@media (max-width:820px){.book{grid-template-columns:1fr} .book::before{display:none} .book .page + .page{border-right:none; border-top:1px solid rgba(143,116,67,.3)}}
+.page h3{font-family:var(--f-head); font-size:1.14rem; font-weight:700; color:var(--gold-d); margin:12px 0 3px}
+.page p{font-size:.94rem; line-height:1.9; color:#6b5340}
+.page .rule{height:1px; background:linear-gradient(90deg,var(--gold),transparent); margin:10px 0}
+
+/* ---- الركيزة الثالثة: وردة الأغراض ---- */
+.rosette-zone{position:relative; z-index:1; margin-top:8px}
+.rosette{position:relative; width:min(430px,86vw); height:min(430px,86vw); margin:20px auto 0}
+.petal{position:absolute; top:50%; right:50%; width:104px; height:104px; margin:-52px -52px 0 0; border-radius:50%;
+  cursor:pointer; border:1.5px solid rgba(143,116,67,.55); font-family:var(--f-head); font-weight:700; font-size:.82rem;
+  color:var(--ink); background:radial-gradient(circle at 34% 28%, #fdf8ea, #ecdcb7);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px;
+  transform:rotate(calc(var(--i)*-72deg)) translateY(calc(min(430px,86vw)/-2 + 58px)) rotate(calc(var(--i)*72deg));
+  box-shadow:0 12px 24px -12px rgba(73,51,38,.5); transition:box-shadow .3s, background .3s, color .3s}
+.petal:hover{box-shadow:0 18px 30px -12px rgba(73,51,38,.6)}
+.petal.on{background:radial-gradient(circle at 34% 28%, #c3a468, #8f7443); color:var(--warm)}
+.petal svg{width:22px; height:22px}
+.rose-core{position:absolute; top:50%; right:50%; transform:translate(50%,-50%); width:58%; aspect-ratio:1/1; border-radius:50%;
+  background:var(--warm); border:1.5px solid rgba(143,116,67,.5); box-shadow:inset 0 0 0 6px rgba(232,214,181,.5), 0 18px 40px -20px rgba(73,51,38,.5);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:24px}
+.rose-core h4{font-family:var(--f-head); font-size:1.05rem; color:var(--gold-d)}
+.rose-core p{font-size:.78rem; line-height:1.75; color:#6b5340; margin-top:6px}
+.rose-core.fade{animation:eraIn .45s var(--ease)}
+@media (max-width:700px){
+  .rosette{width:auto; height:auto; display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:18px}
+  .petal{position:static; width:auto; height:auto; margin:0; border-radius:12px; transform:none; padding:14px 8px}
+  .rose-core{position:static; transform:none; width:auto; border-radius:12px; grid-column:1/-1; padding:18px; min-height:110px}
+}
+.purpose-note{max-width:70ch; margin:16px auto 0}
+
+/* ---- الركيزة الرابعة: صفحة مخطوطة بهامش ---- */
+.ms-page{position:relative; z-index:1; background:linear-gradient(180deg,#fdf8ea,#f5ebd1);
+  border:1px solid rgba(143,116,67,.5); padding:clamp(18px,3vh,30px) clamp(18px,3vw,38px);
+  box-shadow:0 24px 50px -26px rgba(73,51,38,.55); text-align:right}
+.ms-page::before{content:""; position:absolute; top:14px; bottom:14px; right:clamp(10px,1.4vw,18px); width:1.5px;
+  background:linear-gradient(180deg,transparent,var(--gold) 15%,var(--gold) 85%,transparent)}
+.mline{display:flex; gap:13px; align-items:flex-start; padding:9px 0; border-bottom:1px dotted rgba(143,116,67,.35)}
+.mline:last-child{border-bottom:none}
+.mline svg{flex:none; width:15px; height:15px; margin-top:8px; color:var(--gold-d)}
+.mline h3{font-family:var(--f-head); font-size:1.08rem; font-weight:700; display:inline}
+.mline p{font-size:.93rem; line-height:1.85; color:#6b5340; margin-top:2px}
+
+/* ---- الشعراء: علامات مرجعية ---- */
+.marks{position:relative; z-index:1; display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-top:28px}
+@media (max-width:1020px){.marks{grid-template-columns:repeat(2,1fr)} .mark:last-child{grid-column:1/-1}}
+@media (max-width:560px){.marks{grid-template-columns:1fr}}
+.mark{position:relative; text-align:center; padding:22px 12px 26px;
+  background:linear-gradient(180deg,#fbf2dd,#f0e2c2); border:1px solid rgba(143,116,67,.45);
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 20px),50% 100%,0 calc(100% - 20px));
+  padding-bottom:40px; transition:transform .4s var(--ease), box-shadow .4s}
+.mark::before{content:""; position:absolute; top:0; right:0; left:0; height:5px; background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-d))}
+.mark:hover{transform:translateY(-8px); box-shadow:0 24px 40px -24px rgba(73,51,38,.6)}
+.poet-seal{width:62px; height:62px; margin:6px auto 12px; border-radius:50%; position:relative; display:grid; place-items:center;
+  font-family:var(--f-display); font-size:1.7rem; color:var(--warm);
+  background:radial-gradient(circle at 32% 28%, #c8ab74, #8f7443);
+  box-shadow:inset 0 2px 6px rgba(255,253,247,.35), 0 8px 18px -8px rgba(73,51,38,.6)}
+.poet-seal::before{content:""; position:absolute; inset:-5px; border-radius:50%; border:1px solid rgba(143,116,67,.55)}
+.mark h3{font-family:var(--f-head); font-size:1.06rem; font-weight:700}
+.mark .ptag{font-family:var(--f-ui); font-size:.7rem; color:var(--olive); font-weight:600; margin:6px 0 10px; line-height:1.7; min-height:2.6em}
+.mark .pverse{font-family:var(--f-head); font-style:italic; font-size:.96rem; color:var(--gold-d); line-height:1.9;
+  border-top:1px dashed rgba(143,116,67,.5); padding-top:10px}
+.poets-note{margin-top:20px}
+
+/* ---- الركيزة الخامسة: ألواح + هوامش ---- */
+.tablets{position:relative; z-index:1; display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:24px}
+@media (max-width:1020px){.tablets{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.tablets{grid-template-columns:1fr}}
+.tablet{position:relative; text-align:center; padding:26px 14px 18px; background:linear-gradient(180deg,#fbf3df,#efe0c0);
+  border:1px solid rgba(143,116,67,.5); border-top:none; box-shadow:0 16px 30px -18px rgba(73,51,38,.5);
+  transition:transform .35s var(--ease)}
+.tablet::before{content:""; position:absolute; top:0; right:-1px; left:-1px; height:14px;
+  background:linear-gradient(180deg,#c9ad77,#a58752); border:1px solid rgba(143,116,67,.6)}
+.tablet:hover{transform:translateY(-6px)}
+.tablet .tk{width:42px; height:42px; margin:6px auto 10px; display:grid; place-items:center; color:var(--gold-d);
+  background:var(--warm); border:1px solid rgba(143,116,67,.5); border-radius:50%}
+.tablet .tk svg{width:20px; height:20px}
+.tablet h3{font-family:var(--f-head); font-size:1.06rem; font-weight:700; margin-bottom:6px}
+.tablet p{font-size:.88rem; line-height:1.85; color:#6b5340}
+.margins{position:relative; z-index:1; margin-top:22px; padding-inline-start:22px; border-inline-start:3px solid var(--gold); display:grid; gap:10px; text-align:right}
+.margins li{list-style:none; display:flex; gap:10px; align-items:flex-start; font-size:.97rem; line-height:1.9; color:#5b4232;
+  background:rgba(255,253,247,.55); border:1px solid rgba(182,154,100,.3); padding:10px 14px}
+.margins li svg{flex:none; width:16px; height:16px; margin-top:8px; color:var(--olive)}
+
+/* ---- الخاتمة ---- */
+.end-arch{position:relative; z-index:1; max-width:620px; margin-inline:auto}
+.end-arch .mat-in{height:clamp(180px,26vh,260px)}
+.end-quote{font-size:clamp(1.25rem,2.5vw,1.95rem); margin-top:26px}
+.btn-row{display:flex; gap:14px; justify-content:center; margin-top:24px; flex-wrap:wrap; position:relative; z-index:1}
+.btn-soft{font-family:var(--f-ui); font-weight:700; font-size:.95rem; cursor:pointer; padding:13px 26px;
+  display:inline-flex; align-items:center; gap:9px; transition:transform .3s var(--ease), box-shadow .3s, background .3s;
+  clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px)}
+.btn-soft svg{width:18px; height:18px}
+.btn-gold{color:var(--warm); background:linear-gradient(160deg,#3a291c,var(--ink)); border:none}
+.btn-ghost{color:var(--ink); background:rgba(255,253,247,.85); border:1.5px solid var(--gold-d)}
+.btn-soft:hover{transform:translateY(-3px); box-shadow:0 14px 28px -12px rgba(73,51,38,.5)}
+.author-line{font-family:var(--f-head); font-size:clamp(1.05rem,1.7vw,1.35rem); margin-top:16px}
+.author-line strong{color:var(--gold-d)}
+
+/* ============================================================
+   فهرس الكتاب (القائمة)
+   ============================================================ */
+#menuOverlay{position:fixed; inset:0; z-index:90; display:grid; place-items:center; padding:22px;
+  background:rgba(47,32,21,.42); backdrop-filter:blur(6px);
+  opacity:0; visibility:hidden; transition:opacity .4s var(--ease), visibility 0s linear .4s}
+#menuOverlay.open{opacity:1; visibility:visible; transition-delay:0s}
+.menu-card{width:min(920px,94vw); max-height:88vh; overflow-y:auto; scrollbar-width:thin;
+  background:linear-gradient(175deg,#fdf7e8,#f1e3c4); border:1.5px solid var(--gold-d);
+  padding:clamp(22px,4vw,42px); box-shadow:0 44px 90px -32px rgba(24,15,8,.7);
+  transform:translateY(24px); transition:transform .45s var(--ease)}
+#menuOverlay.open .menu-card{transform:none}
+.menu-card h2{font-size:1.7rem; text-align:center}
+.menu-hint{margin-top:10px; text-align:center; font-family:var(--f-ui); font-size:.76rem; color:#8a715a; line-height:1.9}
+.menu-grid{margin-top:18px; display:grid; grid-template-columns:1fr 1fr; gap:10px}
+@media (max-width:680px){.menu-grid{grid-template-columns:1fr}}
+.mcard{position:relative; text-align:right; cursor:pointer; font-family:var(--f-body);
+  background:rgba(255,253,247,.55); border:1px solid rgba(143,116,67,.35); padding:13px 16px 12px;
+  transition:transform .3s var(--ease), background .25s, border-color .25s, box-shadow .3s}
+.mcard:hover{transform:translateY(-3px); background:#fffdf7; border-color:var(--gold-d); box-shadow:0 14px 28px -16px rgba(73,51,38,.4)}
+.mcard.wide{grid-column:1/-1}
+.mcard .mc-head{display:flex; align-items:flex-start; gap:11px}
+.mcard .mc-num{flex:none; width:25px; height:25px; border-radius:50%; display:grid; place-items:center;
+  font-family:var(--f-kufi); font-size:.74rem; color:var(--warm); background:linear-gradient(150deg,#bfa063,#8f7443); margin-top:2px}
+.mcard h3{font-family:var(--f-head); font-size:1.08rem; font-weight:700; display:inline}
+.mcard .mc-s{display:block; font-family:var(--f-ui); font-size:.7rem; color:#8a715a; margin-top:2px}
+.mcard ul{margin-top:10px; display:flex; flex-wrap:wrap; gap:5px}
+.mcard li{list-style:none; font-family:var(--f-ui); font-size:.67rem; color:#5f4736; line-height:1.6;
+  background:rgba(232,214,181,.55); border:1px solid rgba(182,154,100,.45); padding:3px 11px; border-radius:999px}
+.mcard.on{border-color:var(--gold-d); box-shadow:inset 0 0 0 1px var(--gold-d)}
+.mcard.on::before{content:"أنت هنا"; position:absolute; top:10px; left:10px; font-family:var(--f-kufi);
+  font-size:.6rem; color:var(--warm); background:var(--olive); padding:2px 10px; border-radius:99px}
+.menu-close{position:absolute; top:12px; left:12px}
+.menu-src{margin-top:16px; text-align:center; font-family:var(--f-ui); font-size:.72rem; color:#8a715a; line-height:2}
+
+/* ============================================================
+   لوحة التحكم: شريط حبري قاتم
+   ============================================================ */
+#dock{position:fixed; bottom:26px; right:50%; transform:translateX(50%) translateY(18px); z-index:75;
+  display:flex; align-items:center; gap:4px; padding:7px 16px;
+  opacity:0; pointer-events:none; transition:opacity .45s var(--ease), transform .45s var(--ease);
+  max-width:94vw; flex-wrap:wrap; justify-content:center;
+  filter:drop-shadow(0 20px 34px rgba(24,15,8,.55))}
+#dock::before{content:""; position:absolute; inset:0; z-index:0;
+  background:linear-gradient(180deg,#43301f,#2f2015);
+  border:1px solid rgba(182,154,100,.4); box-shadow:inset 0 1px 0 rgba(255,253,247,.12);
+  clip-path:polygon(13px 0,calc(100% - 13px) 0,100% 50%,calc(100% - 13px) 100%,13px 100%,0 50%)}
+#dock>*{position:relative; z-index:1}
+#dock.show{opacity:1; pointer-events:auto; transform:translateX(50%) translateY(0)}
+.dbtn{position:relative; width:38px; height:38px; border:none; cursor:pointer; background:transparent; color:#e7d9b8;
+  display:grid; place-items:center; transition:color .25s, transform .2s, background .25s; border-radius:3px}
+.dbtn:hover{color:#fff; background:rgba(182,154,100,.22); transform:translateY(-2px)}
+.dbtn:active{transform:scale(.92)}
+.dbtn svg{width:18px; height:18px}
+.dbtn[aria-pressed="true"]{background:var(--gold); color:var(--ink-2)}
+.dsep{width:1px; height:20px; background:rgba(182,154,100,.4); margin-inline:4px}
+.dcount{font-family:var(--f-ui); font-weight:700; font-size:.78rem; color:#d8c08c; padding:0 9px; white-space:nowrap}
+.dzoom{font-family:var(--f-kufi); font-size:.76rem; color:#e7d9b8; min-width:46px; text-align:center}
+.dprog{width:60px; height:3px; background:rgba(255,253,247,.16); overflow:hidden; margin-inline:4px}
+.dprog i{display:block; height:100%; width:0; background:linear-gradient(90deg,var(--gold-d),#d8c08c); transition:width .5s var(--ease)}
+.dock-tip::after{content:attr(data-tip); position:absolute; bottom:calc(100% + 12px); right:50%; transform:translateX(50%) translateY(4px);
+  font-family:var(--f-ui); font-size:.66rem; font-weight:600; white-space:nowrap; color:var(--ink-2);
+  background:#f3e8cd; padding:5px 10px; border:1px solid rgba(143,116,67,.5); opacity:0; pointer-events:none;
+  transition:opacity .25s, transform .25s}
+.dock-tip:hover::after,.dock-tip:focus-visible::after{opacity:1; transform:translateX(50%) translateY(0)}
+@media (max-width:720px){.dbtn{width:34px; height:34px} .dprog{display:none} .dcount{font-size:.7rem}}
+
+/* ---- حركة مخفضة ---- */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.15s !important}
+  .cover-media img{animation:none}
+  .seal-spin{animation:none}
+  [data-anim]{opacity:1; transform:none; clip-path:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="khatam" viewBox="0 0 100 100">
+      <g fill="none" stroke="currentColor" stroke-width="2.6">
+        <rect x="24" y="24" width="52" height="52"/>
+        <rect x="24" y="24" width="52" height="52" transform="rotate(45 50 50)"/>
+        <circle cx="50" cy="50" r="11"/>
+      </g>
+    </symbol>
+    <symbol id="ministar" viewBox="0 0 24 24">
+      <path d="M12 2.5l2.6 6.9 6.9 2.6-6.9 2.6L12 21.5l-2.6-6.9-6.9-2.6 6.9-2.6z" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div id="paperBack" aria-hidden="true"></div>
+<canvas id="dust" aria-hidden="true"></canvas>
+<div id="grain" aria-hidden="true"></div>
+
+<div id="frame" aria-hidden="true">
+  <svg class="fcorner c1" viewBox="0 0 100 100"><use href="#khatam"/></svg>
+  <svg class="fcorner c2" viewBox="0 0 100 100"><use href="#khatam"/></svg>
+  <svg class="fcorner c3" viewBox="0 0 100 100"><use href="#khatam"/></svg>
+  <svg class="fcorner c4" viewBox="0 0 100 100"><use href="#khatam"/></svg>
+</div>
+
+<div id="ribbon" aria-hidden="true"><i id="ribbonDot"></i></div>
+<div id="tabs" role="navigation" aria-label="ألسنة المشاهد"></div>
+
+<div id="brand" aria-hidden="true">
+  <svg viewBox="0 0 24 24"><use href="#ministar"/></svg>
+  <span>الأدب الجاهلي · رحلة تفاعلية</span>
+</div>
+
+<nav id="siteNav" aria-label="التنقل في الموقع">
+  <div class="nav-row">
+    <span class="nav-title">الأدب الجاهلي</span>
+    <a href="#s0" data-goto="0">البداية</a>
+    <a href="#s1" data-goto="1">المقدمة</a>
+    <a href="#s2" data-goto="2">الركائز</a>
+    <a href="#s3" data-goto="3">البيئة</a>
+    <a href="#s4" data-goto="4">المكانة</a>
+    <a href="#s5" data-goto="5">الأغراض</a>
+    <a href="#s6" data-goto="6">الشعر وشعراؤه</a>
+    <a href="#s8" data-goto="8">النثر والإرث</a>
+    <a href="#s9" data-goto="9">الخاتمة</a>
+  </div>
+</nav>
+
+<main id="stage">
+<div id="scenes">
+
+<!-- ============ ٠ · الغلاف ============ -->
+<section class="scene scene-cover active" id="s0" data-title="الغلاف" aria-label="غلاف العرض">
+  <div class="cover-split">
+    <div class="cover-text">
+      <p data-anim="fade" style="--d:.15s"><span class="chip">رحلة في تراث العرب</span></p>
+      <h1 class="title-cover" data-anim="up" style="--d:.35s">الأدب في العصر الجاهلي</h1>
+      <div class="gold-rule" data-anim="line" style="--d:.85s"></div>
+      <p class="quote-mark" data-anim="fade" style="--d:1s; margin-top:16px">حين كانت القصيدة ذاكرة العرب، وكان الشعر صوت القبيلة</p>
+      <p class="plate" data-anim="zoom" style="--d:1.2s">إعداد: <strong>نصرلله الموسوي</strong></p>
+      <div data-anim="up" style="--d:1.4s">
+        <button class="btn-hero" id="startBtn">
+          ابدأ الرحلة
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+      </div>
+      <p class="hint" data-anim="fade" style="--d:1.65s">تجوّل بالأسهم أو مفتاح المسافة — واللوحة السفلية ترافقك دائمًا</p>
+    </div>
+    <div class="cover-media" data-anim="left" style="--d:.5s">
+      <figure class="mat arch">
+        <span class="mat-in">
+          <img src="https://images.pexels.com/photos/33566026/pexels-photo-33566026.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="كثبان رملية ذهبية مترامية الأطراف تحت سماءٍ مشرقة" loading="eager" decoding="async">
+        </span>
+      </figure>
+    </div>
+  </div>
+  <svg class="seal-spin" viewBox="0 0 100 100" aria-hidden="true"><use href="#khatam"/></svg>
+</section>
+
+<!-- ============ ١ · المقدمة ============ -->
+<section class="scene" id="s1" data-title="المقدمة" aria-label="المقدمة">
+  <span class="wm wm-r" aria-hidden="true">زمن</span>
+  <div class="scene-inner center">
+    <p data-anim="fade" style="--d:.05s"><span class="chip">مدخل</span></p>
+    <h2 class="h-scene" data-anim="up" style="--d:.15s"><span class="brush">من زمنٍ إلى زمن</span></h2>
+    <p class="lead" data-anim="up" style="--d:.3s">يتغيّر الأدب بتغيّر العصور، ويحمل في كلماته ملامح الإنسان، وصوت المجتمع، وروح الزمن. وهذه لمحاتٌ عامة لأطوار الأدب العربي — فالتحوّل الأدبي طريقٌ ممتدّ، لا قطيعة تامة بين عصرٍ وآخر.</p>
+    <div class="tl-wrap" data-anim="up" style="--d:.45s">
+      <svg class="tl-path" viewBox="0 0 100 14" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M2 8 Q 14 2 26 8 T 50 8 T 74 8 T 98 8" vector-effect="non-scaling-stroke"/>
+      </svg>
+      <div class="tl-nodes" id="timeline"></div>
+    </div>
+    <div class="archive" id="eraDetail" data-anim="clip" style="--d:.6s"></div>
+  </div>
+</section>
+
+<!-- ============ ٢ · خارطة الرحلة ============ -->
+<section class="scene" id="s2" data-title="خارطة الرحلة" aria-label="خارطة الرحلة">
+  <span class="wm wm-l" aria-hidden="true">خمس</span>
+  <div class="scene-inner center">
+    <p data-anim="fade" style="--d:.05s"><span class="chip">فهرس الركائز</span></p>
+    <h2 class="h-scene" data-anim="up" style="--d:.15s"><span class="brush">خارطة الرحلة — خمس ركائز</span></h2>
+    <div class="ledger" id="pillars">
+      <button class="lrow" data-goto="3" data-anim="right" style="--d:.35s"><span class="lnum">١</span><span><h3>البيئة التي أنجبت القصيدة</h3><p>الصحراء، القبيلة، ونبض الحياة</p></span><span class="ldr"></span><span class="lgo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></span></button>
+      <button class="lrow" data-goto="4" data-anim="right" style="--d:.45s"><span class="lnum">٢</span><span><h3>الأدب الجاهلي ومكانته</h3><p>ديوان العرب والرواية الشفهية</p></span><span class="ldr"></span><span class="lgo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></span></button>
+      <button class="lrow" data-goto="5" data-anim="right" style="--d:.55s"><span class="lnum">٣</span><span><h3>أغراض الشعر الجاهلي</h3><p>من الفخر والحماسة إلى الوصف</p></span><span class="ldr"></span><span class="lgo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></span></button>
+      <button class="lrow" data-goto="6" data-anim="right" style="--d:.65s"><span class="lnum">٤</span><span><h3>خصائص الشعر وشعراؤه</h3><p>جزالة اللفظ وقوّة التصوير</p></span><span class="ldr"></span><span class="lgo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></span></button>
+      <button class="lrow" data-goto="8" data-anim="right" style="--d:.75s"><span class="lnum">٥</span><span><h3>النثر الجاهلي وإرث الأدب</h3><p>خطابةٌ وحكمةٌ وأثرٌ باقٍ</p></span><span class="ldr"></span><span class="lgo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></span></button>
+    </div>
+    <p class="note" data-anim="fade" style="--d:.95s; margin-top:16px">اضغط على أيّ ركيزة للانتقال إليها مباشرة — والركيزة الرابعة تمتدّ على مشهدين: الخصائص ثم الشعراء.</p>
+  </div>
+</section>
+
+<!-- ============ ٣ · الركيزة الأولى: البيئة ============ -->
+<section class="scene" id="s3" data-title="الركيزة الأولى" aria-label="البيئة التي أنجبت القصيدة">
+  <div class="panorama" aria-hidden="true">
+    <img src="https://images.pexels.com/photos/14437687/pexels-photo-14437687.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="" loading="lazy" decoding="async">
+  </div>
+  <div class="scene-inner">
+    <div class="spread" style="grid-template-columns:1.1fr .9fr">
+      <div class="frost">
+        <p data-anim="fade" style="--d:.05s"><span class="chip">الركيزة الأولى</span></p>
+        <h2 class="h-scene" data-anim="up" style="--d:.15s">البيئة التي أنجبت القصيدة</h2>
+        <p class="quote-mark" data-anim="fade" style="--d:.3s; margin:10px 0 14px">من رمال الصحراء، ومن حياة القبيلة، استمدّ الشعر صوره ونبضه</p>
+        <div class="stack">
+          <div class="mrow" data-anim="right" style="--d:.4s"><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg></span><div><h3>الصحراء</h3><p>فضاءٌ واسع علّم الإنسان الصبر والتأمّل، ووهب القصيدة صور الليل والنجوم والسراب.</p></div></div>
+          <div class="mrow" data-anim="right" style="--d:.5s"><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><div><h3>القبيلة</h3><p>انتماءٌ وولاءٌ ومجدٌ مشترك؛ فالشاعر لسان قبيلته وذاكرتها الحيّة.</p></div></div>
+          <div class="mrow" data-anim="right" style="--d:.6s"><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="3"/><circle cx="18" cy="5" r="3"/><path d="M12 19h4.5a3.5 3.5 0 0 0 0-7h-9a3.5 3.5 0 0 1 0-7H12"/></svg></span><div><h3>الرحلات والقوافل</h3><p>ترحالٌ تجاريٌّ ورحلاتٌ بحثًا عن الكلأ والماء، حملت أخبار الديار والمواسم.</p></div></div>
+          <div class="mrow" data-anim="right" style="--d:.7s"><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1 1 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></span><div><h3>الحروب والغارات</h3><p>أيّامٌ خلّدها الشعر؛ فكانت الحماسة والفروسية وقود القصيدة وأمجادها.</p></div></div>
+          <div class="mrow" data-anim="right" style="--d:.8s"><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg></span><div><h3>الكرم والنجدة</h3><p>قيمٌ اجتماعية عظيمة تغنّت بها القصائد، فصارت ميزانًا للفخر والمدح.</p></div></div>
+        </div>
+      </div>
+      <div></div>
+    </div>
+  </div>
+  <figure class="mat float-mat" data-anim="zoom" style="--d:.65s">
+    <span class="mat-in"><img src="https://images.pexels.com/photos/18166240/pexels-photo-18166240.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="جمال تسير في الصحراء وقت الغروب وظلالها ممتدة على الرمال" loading="lazy" decoding="async"></span>
+    <figcaption>ظلال الرحّل تمتدّ على الرمل كأبياتٍ تُروى — وقافلة تعبر الكثبان: ذاكرة الطريق في شعر العرب</figcaption>
+  </figure>
+</section>
+
+<!-- ============ ٤ · الركيزة الثانية: المكانة ============ -->
+<section class="scene" id="s4" data-title="الركيزة الثانية" aria-label="الأدب الجاهلي ومكانته">
+  <span class="wm wm-l" aria-hidden="true">ديوان</span>
+  <div class="scene-inner">
+    <div class="spread" style="grid-template-columns:.9fr 1.1fr">
+      <div style="display:grid; gap:16px">
+        <figure class="mat arch" data-anim="right" style="--d:.45s">
+          <span class="mat-in" style="height:clamp(200px,30vh,300px)"><img src="https://images.pexels.com/photos/30560588/pexels-photo-30560588.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="مخطوطة عربية مذهّبة بزخرفة إسلامية دقيقة وخطٍّ جميل" loading="lazy" decoding="async"></span>
+          <figcaption>مخطوطة عربية قديمة — حين صارت القصيدة نصًّا محفوظًا</figcaption>
+        </figure>
+        <figure class="mat" data-anim="right" style="--d:.6s">
+          <span class="mat-in" style="height:clamp(120px,19vh,180px)"><img src="https://images.pexels.com/photos/27407233/pexels-photo-27407233.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="مجلس عربي تقليدي في مخيّم صحراوي ليلًا حول نارٍ دافئة" loading="lazy" decoding="async"></span>
+          <figcaption>مجلسٌ عربيٌّ تُروى فيه الأشعار والأخبار</figcaption>
+        </figure>
+      </div>
+      <div>
+        <p data-anim="fade" style="--d:.05s"><span class="chip">الركيزة الثانية</span></p>
+        <h2 class="h-scene" data-anim="up" style="--d:.15s"><span class="brush">الأدب الجاهلي ومكانته</span></h2>
+        <p class="lead" data-anim="up" style="--d:.3s; margin-top:12px">هو ما وصلنا من شعرٍ ونثرٍ في جزيرة العرب قبل الإسلام بنحو قرنٍ ونصفٍ إلى قرنين؛ فترةٌ كُتب تاريخُها بالقوافي قبل أن تُكتب بالسطور.</p>
+        <div class="book" data-anim="clip" style="--d:.45s">
+          <div class="page">
+            <h3>الشعر ديوان العرب</h3>
+            <p>قيل قديمًا: «الشعرُ ديوانُ العرب»؛ يحفظ الأخبار والأنساب، ويصوّر القيم، ويخلّد المآثر.</p>
+            <div class="rule"></div>
+            <h3>الرواية الشفهية والرواة</h3>
+            <p>حملةُ الشعر ينقلونه من مجلسٍ إلى مجلس؛ فحفظت الذاكرة ما لم تكتبه الصحف.</p>
+          </div>
+          <div class="page">
+            <h3>سوق عكاظ</h3>
+            <p>موسمٌ تجتمع فيه القبائل؛ يتناشد الشعراء قصائدهم ويتفاخرون بها أمام الناس.</p>
+            <div class="rule"></div>
+            <h3>مصدرٌ مهمّ، لا وحيد</h3>
+            <p>الأدب نافذةٌ على الحياة العربية القديمة، لكنّه ليس المصدر التاريخي الوحيد؛ ونصوصٌ كثيرة دُوّنت لاحقًا فتُقرأ بعينٍ فاحصة.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ٥ · الركيزة الثالثة: الأغراض ============ -->
+<section class="scene" id="s5" data-title="الركيزة الثالثة" aria-label="أغراض الشعر الجاهلي">
+  <span class="wm wm-r" aria-hidden="true">شعر</span>
+  <div class="scene-inner center">
+    <p data-anim="fade" style="--d:.05s"><span class="chip">الركيزة الثالثة</span></p>
+    <h2 class="h-scene" data-anim="up" style="--d:.15s"><span class="brush">أغراض الشعر الجاهلي</span></h2>
+    <p class="quote-mark" data-anim="fade" style="--d:.3s">تنوّعت القصائد، لكنّها ظلّت تنبض بمشاعر الإنسان وتجارب الحياة</p>
+    <div class="rosette-zone" data-anim="zoom" style="--d:.45s">
+      <div class="rosette" id="purposes">
+        <div class="rose-core" id="purposeDetail">
+          <h4>اختر غرضًا</h4>
+          <p>اضغط على أيّ بتلةٍ من الوردة ليظهر تعريف الغرض — فكلّ غرضٍ نافذةٌ على وجدان الإنسان العربي القديم.</p>
+        </div>
+      </div>
+    </div>
+    <p class="note purpose-note" data-anim="fade" style="--d:.7s">الأغراض تتداخل في القصيدة الواحدة؛ فقد تفتتح بالغزل، وتسرد رحلةً وصفية، وتختم بالفخر أو المدح.</p>
+  </div>
+</section>
+
+<!-- ============ ٦ · الركيزة الرابعة: الخصائص ============ -->
+<section class="scene" id="s6" data-title="الركيزة الرابعة — الخصائص" aria-label="خصائص الشعر الجاهلي">
+  <span class="wm wm-l" aria-hidden="true">لفظ</span>
+  <div class="scene-inner">
+    <div class="spread" style="grid-template-columns:1.1fr .9fr">
+      <div>
+        <p data-anim="fade" style="--d:.05s"><span class="chip">الركيزة الرابعة · أوّلًا</span></p>
+        <h2 class="h-scene" data-anim="up" style="--d:.15s"><span class="brush">خصائص الشعر الجاهلي</span></h2>
+        <div class="ms-page" data-anim="clip" style="--d:.35s; margin-top:16px">
+          <div class="mline"><svg viewBox="0 0 24 24"><use href="#ministar"/></svg><div><h3>جزالة الألفاظ</h3><p>ألفاظٌ قوية متماسكة البناء، تناسب هيبة القصيدة وحياة البادية.</p></div></div>
+          <div class="mline"><svg viewBox="0 0 24 24"><use href="#ministar"/></svg><div><h3>قوّة التصوير</h3><p>محاكاةٌ دقيقة تنقل المشهد كأنّك تراه؛ صورٌ حيّة من عينٍ فطنة.</p></div></div>
+          <div class="mline"><svg viewBox="0 0 24 24"><use href="#ministar"/></svg><div><h3>حضور الوزن والقافية</h3><p>قصيدةٌ موزونة على بحرٍ واحد وقافيةٍ موحّدة؛ إيقاعٌ يساعد الذاكرة على الحفظ.</p></div></div>
+          <div class="mline"><svg viewBox="0 0 24 24"><use href="#ministar"/></svg><div><h3>ارتباط القصيدة بالبيئة</h3><p>الناقة والفرس، الليل والصحراء والأطلال؛ مفرداتٌ من صميم الحياة.</p></div></div>
+          <div class="mline"><svg viewBox="0 0 24 24"><use href="#ministar"/></svg><div><h3>تنوّع العاطفة والموضوع</h3><p>وجدانٌ صادق يتنقّل بين الفخر والحبّ والفقد والتأمّل في الحياة والموت.</p></div></div>
+        </div>
+      </div>
+      <div style="display:grid; gap:16px">
+        <figure class="mat arch" data-anim="left" style="--d:.45s">
+          <span class="mat-in" style="height:clamp(190px,29vh,290px)"><img src="https://images.pexels.com/photos/29342496/pexels-photo-29342496.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="صفحة مخطوطة مزخرفة بخطٍّ عربيٍّ وأنماطٍ نباتية دقيقة" loading="lazy" decoding="async"></span>
+          <figcaption>صفحة مخطوطة بإطارٍ زخرفي — جمال النصّ ومتانته</figcaption>
+        </figure>
+        <figure class="mat" data-anim="left" style="--d:.6s">
+          <span class="mat-in" style="height:clamp(110px,18vh,170px)"><img src="https://images.pexels.com/photos/29298348/pexels-photo-29298348.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="حصانٌ عربيٌّ أبيض في هيئةٍ مهيبة" loading="lazy" decoding="async"></span>
+          <figcaption>الفروسية — حضورٌ دائم في صور القصيدة الجاهلية</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ٧ · الركيزة الرابعة: الشعراء ============ -->
+<section class="scene" id="s7" data-title="الركيزة الرابعة — الشعراء" aria-label="شعراء العصر الجاهلي">
+  <span class="wm wm-r" aria-hidden="true">شعراء</span>
+  <div class="scene-inner center">
+    <p data-anim="fade" style="--d:.05s"><span class="chip">الركيزة الرابعة · ثانيًا</span></p>
+    <h2 class="h-scene" data-anim="up" style="--d:.15s"><span class="brush">شعراء خلّدهم الشعر</span></h2>
+    <p class="quote-mark" data-anim="fade" style="--d:.3s">خلّد الشعراء أسماءهم، فبقيت قصائدهم شاهدةً على عصرهم</p>
+    <div class="marks">
+      <article class="mark" data-anim="up" style="--d:.4s"><div class="poet-seal"><span>ا</span></div><h3>امرؤ القيس</h3><p class="ptag">صاحب المعلّقة الأولى؛ رائدُ الغزل والوقوف على الأطلال</p><p class="pverse">«قِفَا نَبْكِ مِنْ ذِكْرَى حَبِيبٍ وَمَنْزِلِ»</p></article>
+      <article class="mark" data-anim="up" style="--d:.5s"><div class="poet-seal"><span>ز</span></div><h3>زهير بن أبي سلمى</h3><p class="ptag">شاعر الحكمة؛ من أصحاب المعلّقات</p><p class="pverse">«سَئِمْتُ تَكَالِيفَ الْحَيَاةِ وَمَنْ يَعِشْ»</p></article>
+      <article class="mark" data-anim="up" style="--d:.6s"><div class="poet-seal"><span>ع</span></div><h3>عنترة بن شدّاد</h3><p class="ptag">شاعر الفروسية والغزل العفيف</p><p class="pverse">«هَلْ غَادَرَ الشُّعَرَاءُ مِنْ مُتَرَدَّمِ»</p></article>
+      <article class="mark" data-anim="up" style="--d:.7s"><div class="poet-seal"><span>ط</span></div><h3>طرفة بن العبد</h3><p class="ptag">من أصحاب المعلّقات؛ تأمّلُ الحياة والموت</p><p class="pverse">«لِخَوْلَةَ أَطْلَالٍ بِبُرْقَةِ ثَهْمَدِ»</p></article>
+      <article class="mark" data-anim="up" style="--d:.8s"><div class="poet-seal"><span>ل</span></div><h3>لبيد بن ربيعة</h3><p class="ptag">عابرُ العصرين؛ أدرك الإسلام فأسلم وحسُن إسلامه</p><p class="pverse">«عَفَتِ الدِّيَارُ مَحَلُّهَا فَمُقَامُهَا»</p></article>
+    </div>
+    <p class="note poets-note" data-anim="fade" style="--d:.95s">الأختام أعلاه رموزٌ فنيّة تخيّلية، لا صور تاريخية — والأبيات من مطالع المعلّقات المشهورة.</p>
+  </div>
+</section>
+
+<!-- ============ ٨ · الركيزة الخامسة: النثر ============ -->
+<section class="scene" id="s8" data-title="الركيزة الخامسة" aria-label="النثر الجاهلي وإرث الأدب">
+  <span class="wm wm-l" aria-hidden="true">نثر</span>
+  <div class="scene-inner center">
+    <p data-anim="fade" style="--d:.05s"><span class="chip">الركيزة الخامسة</span></p>
+    <h2 class="h-scene" data-anim="up" style="--d:.15s"><span class="brush">النثر الجاهلي وإرث الأدب</span></h2>
+    <p class="lead" data-anim="up" style="--d:.3s">إلى جانب الشعر، عرف العرب نثرًا يقنع ويوجّه ويحفظ التجارب؛ كلامًا حملته المجالس والمواسم قبل أن تحمله الكتب.</p>
+    <div class="tablets">
+      <div class="tablet" data-anim="up" style="--d:.4s"><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span><h3>الخطابة</h3><p>خطبٌ في المواسم والمناسبات تحضّ وتعظ وتقنع؛ اشتُهر من الخطباء قُسّ بن ساعدة الإيادي.</p></div>
+      <div class="tablet" data-anim="up" style="--d:.5s"><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5C17.5 10.6 18 9.3 18 8A6 6 0 0 0 6 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span><h3>الأمثال والحكم</h3><p>قولٌ وجيز يلخّص تجربة الحياة؛ وعُدّ أكثم بن صيفي من أشهر حكماء العرب.</p></div>
+      <div class="tablet" data-anim="up" style="--d:.6s"><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></svg></span><h3>الوصايا</h3><p>توجيهاتٌ يوصي بها الوالدُ ولده قبل سفرٍ أو قتال؛ خلاصةُ خبرةٍ بلغةٍ مكثّفة.</p></div>
+      <div class="tablet" data-anim="up" style="--d:.7s"><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.8 5.8 1.9-5.8 1.9L12 18.4l-1.9-5.8L4.2 10.7l5.9-1.9z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg></span><h3>سجع الكهّان</h3><p>عباراتٌ مسجوعة قصيرة غامضة ارتبطت بدعاوى الكهانة ومعرفة الغيب.</p></div>
+    </div>
+    <ul class="margins" data-anim="reveal" style="--d:.85s">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>حفظ الأدب الجاهلي مفردات العربية وأساليبها، فصار مرجعًا لعلماء اللغة والبلاغة في العصور التالية.</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>بقي صداه في الذاكرة الثقافية: أمثالًا تُروى، وحكمًا تُستشهد، وقصائد تُدرَّس حتى اليوم.</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>تنبيهٌ منهجي: دُوّن كثيرٌ من النصوص في عصورٍ لاحقة، فليست كلّ النصوص المنسوبة إلى الجاهلية محلَّ إجماع.</li>
+    </ul>
+    <p class="quote-mark" data-anim="fade" style="--d:1s; margin-top:16px">لم يختفِ صوت الجاهلية؛ بل ظلّ صداه حاضرًا في تراث العربية</p>
+  </div>
+</section>
+
+<!-- ============ ٩ · الخاتمة ============ -->
+<section class="scene" id="s9" data-title="الخاتمة" aria-label="الخاتمة">
+  <span class="wm wm-r" aria-hidden="true">أثر</span>
+  <div class="scene-inner center">
+    <div class="end-arch" data-anim="zoom" style="--d:.1s">
+      <figure class="mat arch">
+        <span class="mat-in"><img src="https://images.pexels.com/photos/36280162/pexels-photo-36280162.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="يدٌ تقلّب صفحات مخطوطة عربية مذهّبة في ضوءٍ دافئ" loading="lazy" decoding="async"></span>
+      </figure>
+    </div>
+    <div class="orn-div" data-anim="fade" style="--d:.35s"><i></i><svg viewBox="0 0 24 24"><use href="#ministar"/></svg><i></i></div>
+    <p class="quote-mark end-quote" data-anim="up" style="--d:.45s">كان الأدب الجاهلي مرآةً لحياة العرب، وصوتًا حفظ مشاعرهم وقيمهم، وجسرًا يصل ماضي العربية بحاضرها</p>
+    <p class="author-line" data-anim="fade" style="--d:.7s">إعداد: <strong>نصرلله الموسوي</strong></p>
+    <p class="note" data-anim="fade" style="--d:.85s; margin-top:6px">انتهت الرحلة، وبقي الأثر.</p>
+    <div class="btn-row" data-anim="up" style="--d:1.05s">
+      <button class="btn-soft btn-gold" id="restartBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        إعادة الرحلة
+      </button>
+      <button class="btn-soft btn-ghost" id="menuBtnEnd">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        قائمة المحاور
+      </button>
+    </div>
+  </div>
+</section>
+
+</div>
+</main>
+
+<!-- فهرس الكتاب -->
+<div id="menuOverlay" role="dialog" aria-modal="true" aria-label="قائمة المحاور">
+  <div class="menu-card" style="position:relative">
+    <button class="dbtn menu-close dock-tip" id="menuClose" data-tip="إغلاق" aria-label="إغلاق القائمة" style="color:var(--ink)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <p class="center"><span class="chip">فهرس الرحلة الكامل</span></p>
+    <h2 style="margin-top:14px">قائمة المحاور</h2>
+    <p class="menu-hint">كلّ محتوى الرحلة معروضٌ أمامك هنا دفعةً واحدة — واضغط أيّ بطاقةٍ للانتقال إلى مشهدها مباشرة.</p>
+    <div class="menu-grid" id="menuList"></div>
+    <p class="menu-src">الأدب في العصر الجاهلي — عرضٌ تفاعليٌّ تراثي<br>إعداد: نصرلله الموسوي</p>
+  </div>
+</div>
+
+<!-- لوحة التحكم -->
+<div id="dock" role="toolbar" aria-label="لوحة التحكم في العرض">
+  <button class="dbtn dock-tip" id="prevBtn" data-tip="السابق" aria-label="المشهد السابق">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+  </button>
+  <span class="dcount" id="sceneCount">المشهد ١ من ١٠</span>
+  <button class="dbtn dock-tip" id="nextBtn" data-tip="التالي" aria-label="المشهد التالي">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+  </button>
+  <span class="dsep"></span>
+  <span class="dprog" aria-hidden="true"><i id="dockProg"></i></span>
+  <span class="dsep"></span>
+  <button class="dbtn dock-tip" id="zoomOutBtn" data-tip="تصغير العرض" aria-label="تصغير العرض">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M8 11h6"/></svg>
+  </button>
+  <span class="dzoom" id="zoomLabel">١٠٠٪</span>
+  <button class="dbtn dock-tip" id="zoomInBtn" data-tip="تكبير العرض" aria-label="تكبير العرض">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
+  </button>
+  <button class="dbtn dock-tip" id="zoomResetBtn" data-tip="إعادة الحجم الافتراضي" aria-label="إعادة الحجم الافتراضي">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+  </button>
+  <span class="dsep"></span>
+  <button class="dbtn dock-tip" id="fsBtn" data-tip="ملء الشاشة" aria-label="ملء الشاشة">
+    <svg id="fsIconOn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+    <svg id="fsIconOff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M8 3v3a2 2 0 0 1-2 2H3"/><path d="M21 8h-3a2 2 0 0 1-2-2V3"/><path d="M3 16h3a2 2 0 0 1 2 2v3"/><path d="M16 21v-3a2 2 0 0 1 2-2h3"/></svg>
+  </button>
+  <button class="dbtn dock-tip" id="modeBtn" data-tip="الانتقال إلى وضع الموقع" aria-label="تبديل الوضع بين العرض والموقع" aria-pressed="false">
+    <svg id="modeIconSite" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    <svg id="modeIconDeck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><rect width="18" height="12" x="3" y="4" rx="2"/><path d="m9 20 3-3 3 3"/><path d="M12 16v1"/></svg>
+  </button>
+  <button class="dbtn dock-tip" id="menuBtn" data-tip="فتح قائمة المحاور" aria-label="فتح قائمة المحاور">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+  </button>
+</div>
+
+<script>
+/* ============================================================
+   منطق العرض — نسخة «الديوان المفتوح»
+   (النصوص والمحتوى مطابقة للنسخة السابقة)
+   ============================================================ */
+(function(){
+"use strict";
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const body=document.body;
+const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const scenes=$$('.scene'); const total=scenes.length;
+let idx=0, mode='deck', lock=false, transFlip=false, menuOpen=false, siteSpyLock=false;
+
+const DIGITS='٠١٢٣٤٥٦٧٨٩';
+const toAr=n=>String(n).replace(/\d/g,d=>DIGITS[d]);
+
+/* ---------- الظهور التتابعي ---------- */
+function reveal(scene){
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    scene.querySelectorAll('[data-anim]').forEach(el=>el.classList.add('in'));
+  }));
+}
+function resetReveal(scene){
+  scene.querySelectorAll('[data-anim].in').forEach(el=>el.classList.remove('in'));
+}
+
+/* ---------- تحديث الواجهة ---------- */
+const ribbonDot=$('#ribbonDot'), sceneCount=$('#sceneCount'), dockProg=$('#dockProg');
+function updateUI(){
+  const pct= total>1 ? (idx/(total-1))*100 : 100;
+  ribbonDot.style.top=pct+'%';
+  dockProg.style.width=pct+'%';
+  sceneCount.textContent=`المشهد ${toAr(idx+1)} من ${toAr(total)}`;
+  $$('#siteNav a').forEach(a=>a.classList.toggle('on', +a.dataset.goto===idx));
+  $$('#tabs .tab').forEach(b=>b.classList.toggle('on', +b.dataset.goto===idx));
+  $$('#menuList .mcard').forEach(b=>b.classList.toggle('on', +b.dataset.goto===idx));
+}
+
+/* ---------- الانتقال بين المشاهد ---------- */
+function goTo(n, opts={}){
+  n=Math.max(0,Math.min(total-1,n));
+  if(lock||n===idx) return;
+  if(mode==='site'){
+    idx=n; updateUI();
+    scenes[n].scrollIntoView({behavior:(reduced||opts.instant)?'auto':'smooth', block:'start'});
+    return;
+  }
+  lock=true;
+  const from=scenes[idx], to=scenes[n];
+  idx=n; updateUI();
+  if(reduced){
+    from.classList.remove('active'); resetReveal(from);
+    to.classList.add('active'); reveal(to); lock=false; return;
+  }
+  from.classList.add('fadeout');
+  setTimeout(()=>{
+    from.classList.remove('active','fadeout'); resetReveal(from);
+    to.classList.add('active');
+    const fx=transFlip?'fx-spread':'fx-up';
+    to.classList.add(fx);
+    reveal(to);
+    setTimeout(()=>{to.classList.remove(fx); lock=false;},980);
+  },250);
+  transFlip=!transFlip;
+}
+const next=()=>goTo(idx+1), prev=()=>goTo(idx-1);
+
+/* ---------- ذرات الغبار ---------- */
+if(!reduced){
+  const cvs=$('#dust'), ctx=cvs.getContext('2d');
+  let W,H,P=[];
+  function size(){W=cvs.width=innerWidth; H=cvs.height=innerHeight;}
+  size(); addEventListener('resize',size);
+  const N=Math.min(48,Math.floor(innerWidth/30));
+  for(let i=0;i<N;i++)P.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,
+    s:.5+Math.random()*1.5,vx:-(.05+Math.random()*.18),vy:-(.02+Math.random()*.09),
+    a:.08+Math.random()*.24,ph:Math.random()*6.283});
+  (function loop(t){
+    requestAnimationFrame(loop);
+    if(document.hidden)return;
+    ctx.clearRect(0,0,W,H);
+    for(const p of P){
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<-8)p.x=W+8; if(p.y<-8)p.y=H+8;
+      const tw=p.a*(0.6+0.4*Math.sin(t/1000+p.ph));
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.s,0,6.283);
+      ctx.fillStyle=`rgba(143,116,67,${tw})`; ctx.fill();
+    }
+  })(0);
+}
+
+/* ---------- الخط الزمني ---------- */
+const ERAS=[
+ {t:'العصر الجاهلي',s:'الشعر والقبيلة والصحراء',focus:true,
+  d:'قبل الإسلام بنحو قرنٍ ونصفٍ إلى قرنين؛ قصيدةٌ تولد من الرمال، وتُروى في مجالس القبيلة، وتحفظ أخبار الأيام والمآثر.',
+  img:'https://images.pexels.com/photos/31415640/pexels-photo-31415640.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200'},
+ {t:'العصر الإسلامي',s:'تحوّلات القيم والموضوعات',
+  d:'ميلاد قيمٍ جديدة مع الرسالة؛ يتّجه الشعر إلى الذود عن الدعوة، وتتسع موضوعات الأدب وأغراضه.',
+  img:'https://images.pexels.com/photos/16718971/pexels-photo-16718971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'},
+ {t:'العصر الأموي',s:'الشعر السياسي والنقائض والغزل',
+  d:'دواوين سياسيّة متحزّبة، ونقائض بين فحول الشعراء، وازدهار الغزل باتّجاهيه: العفيف والصريح.',
+  img:'https://images.pexels.com/photos/37150739/pexels-photo-37150739.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'},
+ {t:'العصر العباسي',s:'اتساع المعارف وتنوّع الأساليب',
+  d:'حركة ترجمةٍ وعلومٍ واسعة، وتجديدٌ في المعاني والصور والأوزان، وازدهار التدوين والمكتبات.',
+  img:'https://images.pexels.com/photos/13549656/pexels-photo-13549656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'}
+];
+const timeline=$('#timeline'), eraDetail=$('#eraDetail');
+ERAS.forEach((e,i)=>{
+  const b=document.createElement('button');
+  b.className='era'+(e.focus?' focus':'')+(i===0?' on':'');
+  b.setAttribute('aria-label','عرض '+e.t);
+  b.innerHTML=`<span class="dot">${toAr(i+1)}</span><span class="era-name">${e.t}</span>`;
+  b.addEventListener('click',()=>setEra(i));
+  timeline.appendChild(b);
+});
+function setEra(i){
+  const e=ERAS[i];
+  $$('#timeline .era').forEach((b,k)=>b.classList.toggle('on',k===i));
+  eraDetail.classList.remove('fade'); void eraDetail.offsetWidth; eraDetail.classList.add('fade');
+  eraDetail.innerHTML=`
+    <div>
+      <h3>${e.t}</h3>
+      <p class="era-sub">${e.s}${e.focus?' · محطّة رحلتنا في هذا العرض':''}</p>
+      <p>${e.d}</p>
+    </div>
+    <figure class="mat"><span class="mat-in"><img src="${e.img}" alt="صورة معبّرة عن ${e.t}" loading="lazy" decoding="async"></span></figure>`;
+}
+setEra(0);
+
+/* ---------- وردة الأغراض ---------- */
+const ICONS={
+ flame:'<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
+ msg:'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+ heart:'<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/>',
+ moon:'<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
+ eye:'<path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/>'
+};
+const PURPOSES=[
+ {t:'الفخر والحماسة',i:'flame',d:'اعتزازٌ بالذات والقبيلة والأمجاد، وتحريضٌ على البأس والشجاعة في المعارك؛ من أعرق أغراض الشعر الجاهلي.'},
+ {t:'المدح والهجاء',i:'msg',d:'وجهان لسلاح الكلمة: إعزازٌ لأهل الكرم والنجدة بالمدح، وذمٌّ للبخل والجبن بالهجاء؛ فكان الشعر سيف قبيلةٍ بأكملها.'},
+ {t:'الغزل',i:'heart',d:'تفتتح به القصائد غالبًا بالوقوف على الأطلال وذكر المحبوبة؛ وفي شعر عنترة أبلغُ صور الغزل العفيف الرقراق.'},
+ {t:'الرثاء',i:'moon',d:'بكاءُ الفقد والوفاءُ للراحلين بذكر مآثرهم؛ اشتهرت به الخنساء في رثاء أخيها صخر حتى صار مضربَ المثل.'},
+ {t:'الوصف',i:'eye',d:'لوحاتٌ فنية دقيقة للناقة والفرس، والليل والصحراء وأثر الرحيل؛ دقةُ محاكاةٍ تكشف عينًا فطنةً وحسًّا مرهفًا.'}
+];
+const purposes=$('#purposes'), purposeDetail=$('#purposeDetail');
+PURPOSES.forEach((p,i)=>{
+  const b=document.createElement('button');
+  b.className='petal'; b.style.setProperty('--i',i);
+  b.setAttribute('aria-label','عرض تعريف '+p.t);
+  b.innerHTML=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${ICONS[p.i]}</svg><span>${p.t}</span>`;
+  b.addEventListener('click',()=>{
+    $$('#purposes .petal').forEach((x,k)=>x.classList.toggle('on',k===i));
+    purposeDetail.classList.remove('fade'); void purposeDetail.offsetWidth; purposeDetail.classList.add('fade');
+    purposeDetail.innerHTML=`<h4>${p.t}</h4><p>${p.d}</p>`;
+  });
+  purposes.appendChild(b);
+});
+
+/* ---------- قائمة المحاور + الألسنة ---------- */
+const MENU=[
+ {t:'الغلاف',s:'افتتاحية الرحلة',wide:true,pts:['العنوان والعبارة الافتتاحية','زرّ «ابدأ الرحلة»','إعداد: نصرلله الموسوي']},
+ {t:'المقدمة',s:'من زمنٍ إلى زمن — خط زمني تفاعلي',wide:true,pts:['العصر الجاهلي: الشعر والقبيلة والصحراء','العصر الإسلامي: تحوّلات القيم والموضوعات','العصر الأموي: الشعر السياسي والنقائض والغزل','العصر العباسي: اتساع المعارف وتنوّع الأساليب']},
+ {t:'خارطة الرحلة',s:'الركائز الخمس',wide:true,pts:['١ البيئة · ٢ المكانة · ٣ الأغراض · ٤ الخصائص والشعراء · ٥ النثر والإرث']},
+ {t:'الركيزة الأولى',s:'البيئة التي أنجبت القصيدة',pts:['الصحراء','القبيلة','الرحلات والقوافل','الحروب والغارات','الكرم والنجدة']},
+ {t:'الركيزة الثانية',s:'الأدب الجاهلي ومكانته',pts:['تعريف الأدب الجاهلي','الشعر ديوان العرب','الرواية الشفهية والرواة','سوق عكاظ','مصدرٌ مهمّ، لا وحيد']},
+ {t:'الركيزة الثالثة',s:'أغراض الشعر الجاهلي',pts:['الفخر والحماسة','المدح والهجاء','الغزل','الرثاء','الوصف']},
+ {t:'الركيزة الرابعة',s:'خصائص الشعر الجاهلي',pts:['جزالة الألفاظ','قوّة التصوير','حضور الوزن والقافية','ارتباط القصيدة بالبيئة','تنوّع العاطفة والموضوع']},
+ {t:'الركيزة الرابعة (تتمة)',s:'شعراء العصر',pts:['امرؤ القيس','زهير بن أبي سلمى','عنترة بن شدّاد','طرفة بن العبد','لبيد بن ربيعة']},
+ {t:'الركيزة الخامسة',s:'النثر الجاهلي وإرث الأدب',pts:['الخطابة','الأمثال والحكم','الوصايا','سجع الكهّان','أثر الأدب في العربية والذاكرة','تنبيه منهجي حول التدوين']},
+ {t:'الخاتمة',s:'أثرٌ يبقى',wide:true,pts:['العبارة الختامية','إعداد: نصرلله الموسوي','انتهت الرحلة، وبقي الأثر','إعادة الرحلة']}
+];
+const menuOverlay=$('#menuOverlay'), menuList=$('#menuList'), tabs=$('#tabs');
+MENU.forEach((m,i)=>{
+  const b=document.createElement('button');
+  b.className='mcard'+(m.wide?' wide':'')+(i===0?' on':''); b.dataset.goto=i;
+  b.innerHTML=`<div class="mc-head"><span class="mc-num">${toAr(i+1)}</span><span><h3>${m.t}</h3><span class="mc-s">${m.s}</span></span></div>
+    <ul>${(m.pts||[]).map(p=>`<li>${p}</li>`).join('')}</ul>`;
+  b.addEventListener('click',()=>{closeMenu(); goTo(i);});
+  menuList.appendChild(b);
+  const tb=document.createElement('button');
+  tb.className='tab'+(i===0?' on':''); tb.dataset.goto=i; tb.dataset.tip=m.t;
+  tb.setAttribute('aria-label',m.t);
+  tb.textContent=toAr(i+1);
+  tb.addEventListener('click',()=>goTo(i));
+  tabs.appendChild(tb);
+});
+function openMenu(){menuOpen=true; menuOverlay.classList.add('open'); showDock(); $('#menuClose').focus();}
+function closeMenu(){menuOpen=false; menuOverlay.classList.remove('open'); poke();}
+$('#menuClose').addEventListener('click',closeMenu);
+menuOverlay.addEventListener('click',e=>{if(e.target===menuOverlay)closeMenu();});
+$('#menuBtn').addEventListener('click',openMenu);
+$('#menuBtnEnd').addEventListener('click',openMenu);
+
+/* ---------- تنقّل عام ---------- */
+$$('#pillars .lrow, #siteNav a').forEach(el=>{
+  el.addEventListener('click',e=>{e.preventDefault(); goTo(+el.dataset.goto);});
+});
+$('#startBtn').addEventListener('click',()=>goTo(1));
+$('#restartBtn').addEventListener('click',()=>goTo(0));
+$('#nextBtn').addEventListener('click',next);
+$('#prevBtn').addEventListener('click',prev);
+
+/* ---------- الوضعان ---------- */
+const modeBtn=$('#modeBtn'), modeIconSite=$('#modeIconSite'), modeIconDeck=$('#modeIconDeck');
+let siteObserver=null;
+function setupSiteObserver(){
+  if(siteObserver)siteObserver.disconnect();
+  siteObserver=new IntersectionObserver(entries=>{
+    entries.forEach(en=>{
+      const el=en.target;
+      if(en.isIntersecting){
+        el.querySelectorAll('[data-anim]:not(.in)').forEach(x=>x.classList.add('in'));
+        if(!siteSpyLock){
+          const k=scenes.indexOf(el);
+          if(k>-1){idx=k; updateUI();}
+        }
+      }
+    });
+  },{threshold:.4});
+  scenes.forEach(s=>siteObserver.observe(s));
+}
+function clearSiteObserver(){ if(siteObserver){siteObserver.disconnect(); siteObserver=null;} }
+function setMode(m){
+  if(m===mode)return;
+  mode=m;
+  const isSite = m==='site';
+  modeBtn.setAttribute('aria-pressed',String(isSite));
+  modeBtn.dataset.tip=isSite?'العودة إلى وضع العرض التقديمي':'الانتقال إلى وضع الموقع';
+  modeIconSite.style.display=isSite?'none':'';
+  modeIconDeck.style.display=isSite?'':'none';
+  if(isSite){
+    body.classList.add('site');
+    siteSpyLock=true;
+    requestAnimationFrame(()=>{
+      scenes[idx].scrollIntoView({behavior:'auto',block:'start'});
+      setTimeout(()=>{siteSpyLock=false;},350);
+    });
+    setupSiteObserver();
+  }else{
+    clearSiteObserver();
+    body.classList.remove('site');
+    window.scrollTo(0,0);
+    scenes.forEach((s,k)=>{
+      s.classList.toggle('active',k===idx);
+      if(k!==idx)resetReveal(s);
+    });
+    reveal(scenes[idx]);
+  }
+  updateUI(); poke();
+}
+modeBtn.addEventListener('click',()=>setMode(mode==='deck'?'site':'deck'));
+
+/* ---------- التكبير ---------- */
+const zoomLabel=$('#zoomLabel');
+const supportsZoom=CSS.supports('zoom','1');
+let zoom=1; const ZMIN=.7,ZMAX=1.5,ZSTEP=.1;
+function applyZoom(){
+  zoom=Math.min(ZMAX,Math.max(ZMIN,Math.round(zoom*100)/100));
+  zoomLabel.textContent=toAr(Math.round(zoom*100))+'٪';
+  if(supportsZoom){
+    body.classList.remove('tzoom');
+    $('#scenes').style.zoom=zoom;
+  }else{
+    $('#scenes').style.zoom='';
+    body.classList.add('tzoom');
+    body.style.setProperty('--z',zoom);
+  }
+  poke();
+}
+$('#zoomInBtn').addEventListener('click',()=>{zoom+=ZSTEP;applyZoom();});
+$('#zoomOutBtn').addEventListener('click',()=>{zoom-=ZSTEP;applyZoom();});
+$('#zoomResetBtn').addEventListener('click',()=>{zoom=1;applyZoom();});
+
+/* ---------- ملء الشاشة ---------- */
+const fsBtn=$('#fsBtn');
+function fsUpdate(){
+  const on=!!document.fullscreenElement;
+  $('#fsIconOn').style.display=on?'none':'';
+  $('#fsIconOff').style.display=on?'':'none';
+  fsBtn.dataset.tip=on?'الخروج من ملء الشاشة':'ملء الشاشة';
+}
+fsBtn.addEventListener('click',()=>{
+  if(document.fullscreenElement){document.exitFullscreen().catch(()=>{});}
+  else{document.documentElement.requestFullscreen().catch(()=>{});}
+});
+document.addEventListener('fullscreenchange',fsUpdate);
+
+/* ---------- اللوحة الذكية ---------- */
+const dock=$('#dock');
+let hideTimer=null, dockHold=false;
+function showDock(){dock.classList.add('show');}
+function poke(){
+  showDock();
+  clearTimeout(hideTimer);
+  hideTimer=setTimeout(()=>{
+    if(!dockHold && !menuOpen) dock.classList.remove('show');
+  },2600);
+}
+['mousemove','mousedown','click','wheel','touchstart'].forEach(ev=>
+  window.addEventListener(ev,poke,{passive:true}));
+window.addEventListener('keydown',poke);
+dock.addEventListener('mouseenter',()=>{dockHold=true;showDock();clearTimeout(hideTimer);});
+dock.addEventListener('mouseleave',()=>{dockHold=false;poke();});
+dock.addEventListener('focusin',()=>{dockHold=true;showDock();clearTimeout(hideTimer);});
+dock.addEventListener('focusout',()=>{dockHold=false;poke();});
+poke();
+
+/* ---------- لوحة المفاتيح (RTL) ---------- */
+window.addEventListener('keydown',e=>{
+  const t=e.target;
+  if(t && (t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.isContentEditable))return;
+  switch(e.key){
+    case 'Escape':
+      if(menuOpen){closeMenu(); e.preventDefault();}
+      break;
+    case 'ArrowLeft':  e.preventDefault(); next(); break;
+    case 'ArrowRight': e.preventDefault(); prev(); break;
+    case ' ':          e.preventDefault(); next(); break;
+    case 'Home':       e.preventDefault(); goTo(0); break;
+    case 'End':        e.preventDefault(); goTo(total-1); break;
+  }
+});
+
+/* ---------- بديل الصور ---------- */
+document.addEventListener('error',e=>{
+  const t=e.target;
+  if(t && t.tagName==='IMG'){
+    const m=t.closest('.mat');
+    if(m)m.classList.add('failed');
+  }
+},true);
+
+/* ---------- الإقلاع ---------- */
+scenes.forEach((s,k)=>{ if(k!==0)s.classList.remove('active'); });
+reveal(scenes[0]);
+applyZoom(); updateUI(); fsUpdate();
+})();
+</script>
+</body>
+</html>
